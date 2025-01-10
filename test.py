@@ -22,7 +22,7 @@ def consoleClear() -> None:
 def askQuestion(question: str) -> float:
     while True:
         try:
-            answer = int(input(f"{TxFormat.bold}{question}{TxFormat.none} Answer on a scale from 0 (Never / Not at all) to 4 (Always / A lot) :  "))
+            answer: int = int(input(f"{TxFormat.bold}{question}{TxFormat.none} Answer on a scale from 0 (Never / Not at all) to 4 (Always / A lot) :  "))
             if answer == 0:
                 return 0.0
             elif answer >= 1 and answer <= 4:
@@ -44,25 +44,25 @@ consoleClear()
 consoleHeader("  MBTI Test by Iggy  ")
 
 # Ask the questions and save the results
-ei_question_1 = askQuestion("How often do you prefer quiet time alone over being around others?") # Higher score = I
+ei_question_1: float = askQuestion("How often do you prefer quiet time alone over being around others?") # Higher score = I
 print()
-sn_question_1 = askQuestion("How often do you focus on details and facts when making decisions or solving problems?") # Higher score = S
+sn_question_1: float = askQuestion("How often do you focus on details and facts when making decisions or solving problems?") # Higher score = S
 print()
-ft_question_1 = askQuestion("How often do you prioritize logic and objective analysis when making decisions?") # Higher score = T
+ft_question_1: float = askQuestion("How often do you prioritize logic and objective analysis when making decisions?") # Higher score = T
 print()
-pj_question_1 = askQuestion("How important is having a detailed plan or schedule before starting something?") # Higher score = J
+pj_question_1: float = askQuestion("How important is having a detailed plan or schedule before starting something?") # Higher score = J
 print()
 
-ei_question_2 = askQuestion("How energized do you feel after spending time in a group of people?") # Higher score = E
+ei_question_2: float = askQuestion("How energized do you feel after spending time in a group of people?") # Higher score = E
 print()
-sn_question_2 = askQuestion("How much do you focus on possibilities, abstract ideas, and imagining what could be?") # Higher score = N
+sn_question_2: float = askQuestion("How much do you focus on possibilities, abstract ideas, and imagining what could be?") # Higher score = N
 print()
-ft_question_2 = askQuestion("How often do you prioritize the impact of your decisions on people's feelings and relationships?") # Higher score = F
+ft_question_2: float = askQuestion("How often do you prioritize the impact of your decisions on people's feelings and relationships?") # Higher score = F
 print()
-pj_question_2 = askQuestion("How much do you like to keep your options open and make decisions spontaneously") # Higher score = P
+pj_question_2: float = askQuestion("How much do you like to keep your options open and make decisions spontaneously") # Higher score = P
 print()
 
 # Get the MBIT type and print it
-mbti_type = f"{decideLetter(ei_question_1, ei_question_2, 'I', 'E')}{decideLetter(sn_question_1, sn_question_2, 'S', 'N')}{decideLetter(ft_question_1, ft_question_2, 'T', 'F')}{decideLetter(pj_question_1, pj_question_2, 'J', 'P')}"
+mbti_type: str = f"{decideLetter(ei_question_1, ei_question_2, 'I', 'E')}{decideLetter(sn_question_1, sn_question_2, 'S', 'N')}{decideLetter(ft_question_1, ft_question_2, 'T', 'F')}{decideLetter(pj_question_1, pj_question_2, 'J', 'P')}"
 print(f"Your MBTI type is: {TxFormat.bold}{mbti_type}{TxFormat.none}")
 
